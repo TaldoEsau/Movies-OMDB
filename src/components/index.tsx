@@ -1,5 +1,5 @@
-export {default as Movie} from "./movie/page";
-export {default as Search} from "./search-movie/page";
-export {default as MovieImage} from "./image-movie/page";
+export {default as Movie} from "./movie";
+export {default as Search} from "./search-movie";
+export {default as MovieImage} from "./image-movie";
 export {default as MovieTitle} from "./title-movie/page";
-export {default as MovieInfo} from "./info-movie/page";
+export {default as MovieInfo} from "./info-movie";

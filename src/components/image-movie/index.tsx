@@ -11,7 +11,7 @@ const MovieImage: FC<IMovieImageProps> = ({ Poster, Title, imgClassName, fill = 
     return (
         <>
             {fill ? (
-                <Image src={Poster.includes("http") ? Poster : FileImage} alt={Title} className={imgClassName} />
+                <Image src={Poster.includes("http") ? Poster : FileImage} alt={Title} width={200} height={200} className={imgClassName} />
             ) : (
                 <Image src={Poster.includes("http") ? Poster : FileImage} alt={Title} width={200} height={200} className={imgClassName} />
             )}

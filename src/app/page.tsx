@@ -1,37 +1,42 @@
-"use client";
-import { Fragment, useState, useMemo, useEffect, useRef } from 'react';
+'use client'
 
+import { Movie, Search } from "@/components";
+import useMovie from "@/hook/useMovie"
+import { useState } from "react";
 
-export default function Home() {
+const Home = () => {
 
+  const [selectedMovie, setSelectMovie] = useState<IMovieList>()
 
-  // const [movies, setMovies] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchMovie = async () => {
-  //     const URL = "http://www.omdbapi.com/?s=transformers&apikey=6068f22a";
-  //     const res = await fetch(URL);
-  //     const fd = await res.json();
-  //     console.log(fd.Search);
-  //     setMovies(fd.Search)
-  //   };
-  //   fetchMovie();
-  // }, []);
+  const { search, setSearch, movies, isLoading, setMovieType, movieType } = useMovie();
 
   return (
-    <div>
-
-      {/* {
-        movies.map((val) => {
-          return (
-            <div>
-              <p>{val.Title}</p>
-              <p>{val.Year}</p>
-              <img src={val.Poster} alt="image" />
-            </div>
-          )
-        })
-      } */}
+    // <section>
+    <div className="bg-black">
+      <div className="flex items-center justify-center bg-black">
+        <Search search={search} setSearch={setSearch} />
+      </div>
+      <div>
+        {(movies && movies.length) ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-y-8">
+            {movies.map(movie => (
+              <Movie key={movie.imdbID} movie={movie} />
+            ))}
+          </div>
+        ) : (
+          <div className="h-96 flex justify-center items-center">
+            {(search.length > 2) ? (
+              <h2 className="text-white text-4xl">Opsss</h2>
+            ) : (
+              <h2 className="bg-black">Search Movie</h2>
+            )}
+          </div>
+        )}
+      </div>
     </div>
-  )
+    // </section>
+  );
+
 }
+
+export default Home;

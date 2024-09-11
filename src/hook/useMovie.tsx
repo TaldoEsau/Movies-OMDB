@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react";
 import { getMoviesService } from "@/services/getMoviesServices";
 import debounce from "@/utils/debounce.util";
