@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MovieTitle from "../title/page";
+import MovieTitle from "../title-movie/page";
 import MovieImage from "../image-movie/page";
 
 const Movie = ({ movie: { Poster, Year, imdbID, Type, Title } }: { movie: IMovie }) => {
@@ -12,7 +12,7 @@ const Movie = ({ movie: { Poster, Year, imdbID, Type, Title } }: { movie: IMovie
             </div>
             <div className="flex-1 flex flex-col">
                 <MovieTitle Title={Title} Year={Year} />
-                <small className="mt-auto"></small>
+                <small className="mt-auto">{Type}</small>
             </div>
         </article>
     )

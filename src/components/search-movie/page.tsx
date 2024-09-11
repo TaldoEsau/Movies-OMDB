@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
 
-interface ISeachProps {
+interface ISearchProps {
     search: string;
     setSearch: (search: string) => void;
 }
 
 
-const Search: FC<ISeachProps> = ({ search, setSearch }) => {
+const Search: FC<ISearchProps> = ({ search, setSearch }) => {
 
     return (
         <div className='flex-1 relative'>
